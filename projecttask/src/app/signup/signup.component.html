@@ -1,0 +1,83 @@
+<h1 style="text-align:center">
+    Welcome to ABC BANK
+</h1>
+
+
+<div class="container">
+    <h1>Sign UP Form</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="signUp()">
+
+        <div class="form-group">
+            <label>Email ID</label>
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+                <input type="email" placeholder="Email" formControlName="email">
+            </p>
+            <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+                <div *ngIf="formControls.email.errors.required">Email is required</div>
+                <div *ngIf="formControls.email.errors.email">Not a valid email id</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+                <input type="password" placeholder="Password" formControlName="password">
+            </p>
+
+            <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                <div *ngIf="formControls.password.errors.required">Password is required</div>
+                <div *ngIf="formControls.password.errors.minlength">length shpuld be atleast 6 letters</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label>FirstName</label>
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.firstName.errors }">
+                <input type="text" placeholder="FirstName" formControlName="firstName">
+            </p>
+            <div *ngIf="isSubmitted && formControls.firstName.errors" class="help-block">
+                <div *ngIf="formControls.firstName.errors.required">FirstName is required</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>LastName</label>
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.lastName.errors }">
+                <input type="text" placeholder="lastName" formControlName="lastName">
+            </p>
+            <div *ngIf="isSubmitted && formControls.lastName.errors" class="help-block">
+                <div *ngIf="formControls.lastName.errors.required">LastName is required</div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <p formGroupName="address">
+                <label>Street</label>
+                <input type="text" class="form-control" formControlName="street">
+                <label>Zip</label>
+                <input type="text" class="form-control" formControlName="zip">
+                <label>City</label>
+                <input type="text" class="form-control" formControlName="city">
+            </p>
+        </div>
+        <button type="button" (click)="submitted=true">print</button>
+        <button type="submit">Submit</button>
+        <label>Have an Account already ? </label>
+        <button type="button" (click)="login()">Login</button>
+    </form>
+    <br />
+    <div [hidden]="!submitted">
+        <h3> Employee Details </h3>
+        <p> Last Name: {{ registerForm.get('email').value }} </p>
+
+        <p> Last Name: {{ registerForm.get('password').value }} </p>
+
+        <p>First Name: {{ registerForm.get('firstName').value }} </p>
+        <p> Last Name: {{ registerForm.get('lastName').value }} </p>
+
+        <p> Street: {{ registerForm.get('address.street').value }}</p>
+        <p> Zip: {{ registerForm.get('address.zip').value }} </p>
+        <p> City: {{ registerForm.get('address.city').value }}</p>
+    </div>
+</div>
+ 
