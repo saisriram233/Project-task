@@ -13,6 +13,8 @@ import { TableModule } from 'primeng/table';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { GMapModule } from 'primeng/gmap';
 import { HttpComponent } from './http/http.component';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { HttpComponent } from './http/http.component';
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule, ReactiveFormsModule, MenubarModule, TableModule, VirtualScrollerModule,
-    GMapModule
+    GMapModule,AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCjTbVV8cYSqI23ILJkYSjfcJ9Udfd3830'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
