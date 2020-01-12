@@ -2,11 +2,17 @@
     Welcome to ABC BANK
 </h1>
 <div class="container">
-
+    <br />
+    //ID AND PWD VALIDATION ADDED
+    <br />
+    //ROUTING ENABLED FOR ALL PAGES
+    <br />
+    <br />
+    <br />
     <form [formGroup]="loginForm" (ngSubmit)="login()">
-        
+
         <div class="form-group">
-            <label>Email ID</label> 
+            <label>Email ID</label>
             <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
                 <input type="email" placeholder="Email" formControlName="email"> (admin@admin.com)
             </p>
@@ -27,8 +33,9 @@
             </div>
 
         </div>
-        <button  type="submit">Submit</button>
-        <button  type="button" (click)="signup()">Signup</button>
+        <br /><br /><br />
+        <button type="submit">Submit</button>
+        <button type="button" (click)="signup()">Signup</button>
         {{message}}
     </form>
     <br />
